@@ -1,0 +1,16 @@
+# Changelog
+
+Development notes of zinc-php.
+
+## [Unreleased]
+
+- Support ES compatible API
+- Add log
+- Bugfixes
+- NOTICE: Any interface would be changed if needed.
+
+## [0.1.0-dev] - 2022-09-08
+
+### [API doc](https://docs.zincsearch.com/api/index/create/) has mostly supported and tested(maybe not very well.)
+
+> [API for ES Compatible](https://docs.zincsearch.com/api-es-compatible/_info/) HAS NOT yet supported.
