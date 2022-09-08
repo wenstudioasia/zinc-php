@@ -1,6 +1,6 @@
 <?php
 
-namespace Vanderw\ZincPhp\Option;
+namespace Wenstudio\ZincPhp\Option;
 
 class AggregationType
 {

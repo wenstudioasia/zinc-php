@@ -1,6 +1,6 @@
 <?php
 
-namespace Vanderw\ZincPhp\Option;
+namespace Wenstudio\ZincPhp\Option;
 
 /**
  * doc: https://docs.zincsearch.com/api/index/update-mapping/

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vanderw\ZincPhp\Option\Analyze;
+namespace Wenstudio\ZincPhp\Option\Analyze;
 
 class TokenFilter
 {

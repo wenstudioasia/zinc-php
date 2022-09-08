@@ -5,8 +5,8 @@ namespace tests;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
 use tests\BaseTest;
-use Vanderw\ZincPhp\Option\FieldType;
-use Vanderw\ZincPhp\Option\StorageType;
+use Wenstudio\ZincPhp\Option\FieldType;
+use Wenstudio\ZincPhp\Option\StorageType;
 
 class TestIndex extends BaseTest
 {

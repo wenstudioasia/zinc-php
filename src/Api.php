@@ -1,6 +1,6 @@
 <?php
 
-namespace Vanderw\ZincPhp;
+namespace Wenstudio\ZincPhp;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;

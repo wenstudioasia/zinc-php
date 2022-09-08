@@ -1,8 +1,8 @@
 <?php
 
-namespace Vanderw\ZincPhp;
+namespace Wenstudio\ZincPhp;
 
-use Vanderw\ZincPhp\Option\StorageType;
+use Wenstudio\ZincPhp\Option\StorageType;
 
 trait Index
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Vanderw\ZincPhp;
+namespace Wenstudio\ZincPhp;
 
-use Vanderw\ZincPhp\Option\SearchType;
+use Wenstudio\ZincPhp\Option\SearchType;
 
 trait Search
 {

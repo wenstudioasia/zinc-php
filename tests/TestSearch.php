@@ -3,8 +3,8 @@
 namespace tests;
 
 use tests\BaseTest;
-use Vanderw\ZincPhp\Option\AggregationType;
-use Vanderw\ZincPhp\Option\SearchType;
+use Wenstudio\ZincPhp\Option\AggregationType;
+use Wenstudio\ZincPhp\Option\SearchType;
 
 class TestSearch extends BaseTest
 {

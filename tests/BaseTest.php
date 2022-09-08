@@ -3,7 +3,7 @@
 namespace tests;
 
 use PHPUnit\Framework\TestCase;
-use Vanderw\ZincPhp\Zinc;
+use Wenstudio\ZincPhp\Zinc;
 
 class BaseTest extends TestCase
 {

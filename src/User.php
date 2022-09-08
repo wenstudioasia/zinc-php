@@ -1,6 +1,6 @@
 <?php
 
-namespace Vanderw\ZincPhp;
+namespace Wenstudio\ZincPhp;
 
 trait User
 {

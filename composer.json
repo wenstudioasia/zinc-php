@@ -14,7 +14,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Vanderw\\ZincPhp\\": "src/",
+      "Wenstudio\\ZincPhp\\": "src/",
       "tests\\": "tests/"
     }
   },
