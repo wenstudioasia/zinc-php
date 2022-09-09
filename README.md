@@ -15,7 +15,7 @@ Development environment:
 ## Install
 
 ```shell
-composer install wenstudioasia/zinc-php
+composer require wenstudioasia/zinc-php
 ```
 
 ## Usage
