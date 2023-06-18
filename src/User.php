@@ -73,12 +73,18 @@ trait User
     /**
      * Login. should be called in try{}catch{} block, throws exception 400 when login failed.
      * 
+     * @param string $id username. eg 'admin'
+     * @param string $password password of $id
+     * 
+     * @return boolean
+     * 
      * @throws ClientException 400 Bad Request. user not exists.
      */
     public function user_login(string $id, string $password): bool
     {
         $resp = $this->client->request('POST', '/api/login', ['json' => [
             '_id' => $id,
+            'base64encoded' => base64_encode($id.':'.$password),
             'password' => $password,
         ]]);
 

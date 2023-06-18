@@ -22,6 +22,8 @@ trait Index
     }
 
     /**
+     * Create a new index
+     * 
      * @param string $index     index name.
      * @param array $mappings      schemes
      *      format: 
@@ -49,6 +51,7 @@ trait Index
      * @param array $setting        settings of index. see official docs
      * @param string $storage_type  see StorageType.php
      * @param int $shard_num        default 3, Determined by `ZINC_SHARD_NUM`
+     * 
      * @return bool                 demonstrate success or not
      * 
      * @throws  GuzzleHttp\Exception\ClientException    400 Bad Request index has already exists.
@@ -88,7 +91,7 @@ trait Index
          * 
          * @var Zinc $this
          */
-        $resp = $this->client->request('POST', "/api/index", ['json' => $body]);
+        $resp = $this->client->request('PUT', "/api/index", ['json' => $body]);
         $arr = Api::json($resp);
 
         return $arr && ($arr['message'] ?? '') == 'ok';
@@ -104,6 +107,13 @@ trait Index
     //     return $this->index_create($index, $mappings, $settings, $storage_type, $shard_num, false);
     // }
 
+    /**
+     * Delete one/multi index
+     * 
+     * @param string $index index name or a pattern to delete multi
+     * 
+     * @return boolean
+     */
     public function index_delete(string $index): bool
     {
         /**
@@ -116,7 +126,9 @@ trait Index
     }
 
     /**
-     * @param {array} $options: 
+     * List existing indexes (All)
+     * 
+     * @param {array} $options: list options
      * page_num = 1,
      * page_size = 20, 
      * sort_by = 'name', 
@@ -150,15 +162,26 @@ trait Index
     }
 
     /**
-     * @param {string} $query_name: fuzzy query by name
+     * list index names by a pattern
+     * 
+     * @param string $fuzzy_name: fuzzy query by name
+     * 
+     * @return array name array
      */
-    public function index_name_list(string $query_name): array
+    public function index_list_by_name(string $fuzzy_name): array
     {
-        $resp = $this->client->request('GET', '/api/index_name', ['query' => ['name' => $query_name]]);
+        $resp = $this->client->request('GET', '/api/index_name', ['query' => ['name' => $fuzzy_name]]);
         $arr = Api::json($resp);
         return ($arr ?? []);
     }
 
+    /**
+     * Get index mapping
+     * 
+     * @param string $index index name
+     * 
+     * @return array represents the mapping
+     */
     public function index_mapping(string $index): array
     {
         $resp = $this->client->request('GET', "/api/$index/_mapping");
@@ -169,12 +192,16 @@ trait Index
     /**
      * Update index mappings
      * 
+     * @param string $index index name
+     * @param array $mapping mapping
+     * 
+     * @return boolean
      */
-    public function index_mapping_update(string $index, array $mappings = []): bool
+    public function index_mapping_update(string $index, array $mapping = []): bool
     {
         $json = [];
-        if (!empty($mappings)) {
-            $json['properties'] = $mappings;
+        if (!empty($mapping)) {
+            $json['properties'] = $mapping;
         }
         // return {"message":"ok"}
         $resp = $this->client->request('PUT', "/api/$index/_mapping", [
@@ -184,6 +211,13 @@ trait Index
         return $arr && ($arr['message'] ?? '') == 'ok';
     }
 
+    /**
+     * Get index settings
+     * 
+     * @param string $index index name
+     * 
+     * @return array settings array
+     */
     public function index_settings(string $index): array
     {
         $resp = $this->client->request('GET', "/api/$index/_settings");
@@ -191,6 +225,14 @@ trait Index
         return $arr;
     }
 
+    /**
+     * Update index settings
+     * 
+     * @param string $index index name
+     * @param array $settings new settings
+     * 
+     * @return boolean
+     */
     public function index_settings_update(string $index, array $settings = []): bool
     {
         $body = json_encode($settings, JSON_FORCE_OBJECT);
@@ -200,6 +242,13 @@ trait Index
         return $arr && ($arr['message'] ?? '') == 'ok';
     }
 
+    /**
+     * Refresh an index data, used for manual reload data from storage.
+     * 
+     * @param string $index index name
+     * 
+     * @return boolean
+     */
     public function index_refresh(string $index): bool
     {
         // return {"message":"ok"}
@@ -208,6 +257,13 @@ trait Index
         return $arr && ($arr['message'] ?? '') == 'ok';
     }
 
+    /**
+     * Check index exists
+     * 
+     * @param string $index index name
+     * 
+     * @return boolean
+     */
     public function index_exists(string $index): bool
     {
         $resp = $this->client->request('HEAD', "/api/index/$index");

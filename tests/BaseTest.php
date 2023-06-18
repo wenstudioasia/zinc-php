@@ -14,6 +14,6 @@ class BaseTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->zinc = new Zinc('http://localhost:4080', 'admin', '123456');
+        $this->zinc = new Zinc('http://localhost:4080', 'admin', 'aa123456');
     }
 }

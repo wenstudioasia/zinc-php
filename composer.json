@@ -1,7 +1,7 @@
 {
   "name": "wenstudioasia/zinc-php",
   "description": "zinc search engine PHP SDK",
-  "version": "0.1.0",
+  "version": "0.4.7",
   "type": "library",
   "keywords": [
     "zinc",

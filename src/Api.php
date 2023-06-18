@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 use SebastianBergmann\Type\NullType;
+use Wenstudio\ZincPhp\Option\Analyze\Analyzer;
 
 class Api
 {
@@ -71,8 +72,18 @@ class Api
 
     /**
      * Analyze the text and generate tokens.
+     * 
+     * @param Analyzer $analyzer @see Analyzer.php
+     * @param string $text text to be analyzed
+     * 
+     * @return array analyzed result
      */
-    public function analyze()
+    public function analyze(Analyzer $analyzer, string $text): array
     {
+        $resp = $this->client->request('POST', '/api/_analyze', ['json'=>[
+            'analyzer' => $analyzer,
+            'text' => $text,
+        ]]);
+        return self::json($resp);
     }
 }

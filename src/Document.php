@@ -5,7 +5,7 @@ namespace Wenstudio\ZincPhp;
 trait Document
 {
     /**
-     * Insert a document
+     * Create a document and index it for searches
      * 
      * @param string $index     index name
      * @param array $doc        document in json format. no need to according mappings predefined.
@@ -52,6 +52,7 @@ trait Document
      * @param string $index     index name
      * @param mixed $doc_id     doc id to be updated
      * @param array $doc        document
+     * 
      * @return bool 
      */
     public function doc_update(string $index, $doc_id, array $doc): bool
@@ -153,7 +154,7 @@ trait Document
     /**
      * Insert multiple documents at once.
      * 
-     * @param string $index
+     * @param string $index     index name
      * @param string $content   composed as multi-line json documents.
      * eg.
      * { "title": "this is the first document", "attr": "foo" }
