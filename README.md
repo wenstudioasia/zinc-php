@@ -1,6 +1,6 @@
 # zinc-php
 
-PHP SDK for [ZincSearch](https://docs.zincsearch.com/).
+PHP SDK for [zincsearch](https://github.com/zincsearch/zincsearch).
 
 This package was first developed for private usage.
 
